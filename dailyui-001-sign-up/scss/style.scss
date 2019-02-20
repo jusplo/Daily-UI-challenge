@@ -1,0 +1,211 @@
+// Fonts
+@import 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+
+// Variables
+$font: 'Lato', sans-serif;
+
+// Colors
+$onyx: #0A0635;
+$cinnabar: #D0A1A2;
+$cosmiclatte: #FFFCE8;
+
+
+// Styles
+body {
+	background-image: url(https://previews.dropbox.com/p/thumb/AAUZH4G-Pc1pO-t9C0vmveNLlySxwOTZQ9WrNWn76AWgaDANusPHxijP1NNAR9IIguqFJmz30foPzG8LxpdBCKPx8KKW-HDnbdLHUb2oaoHP_nmoSigkgvnrlc-ZETDBC9lVL8ibxIypRDjxQvT_0haDrjEqVHyqwLTUE6vrbl6ETYHvIGXLS9XkdZCrB2UKUwUy0Iz-Uv9PsuX0B30NxXexuU9IDy5HW-rKcj9XX8qJXw/p.png?size_mode=5);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #0A0635;
+	font-family: $font;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.App {
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	width: 100vw;
+	position: absolute;
+	top: 0; left: 0;
+}
+
+.Modal {
+	background: #0A0635;
+	border-radius: 2px;
+	padding: 30px;
+	width: 200px;
+}
+
+h1 {
+		font-size: 10px;
+  	color: #eee;
+  	text-align: center;
+		padding: 20px 0px 0px 0px;
+	}
+#register {
+  	color: $cinnabar;
+  	background: none;
+		border: none;
+		display: flex;
+		align-items: center;
+	justify-content: center;
+	
+	font-family: $font;
+	font-size: 13px;
+	font-weight: 500;
+	outline: none;
+	padding: 0px 9px 10px 11px;
+	text-transform: uppercase;
+	width: 100%;
+	}
+
+#forgotpass {
+  	color: $cinnabar;
+  	background: none;
+		border: none;
+		display: flex;
+		align-items: right;
+	justify-content: flex-end;
+	
+	font-family: $font;
+	font-size: 10px;
+	font-weight: 500;
+	outline: none;
+	padding: 0px 9px 10px 11px;
+	width: 100%;
+	}
+
+h3{
+		font-size: 20px;
+  	color: #eee;
+  	text-align: center;
+		padding: 20px 0px 40px 0px;
+	}
+
+
+// Inputs
+.Input {
+	display: flex;
+	flex-direction: row-reverse;
+	border-bottom: 1px solid rgba(#FFFFFF, .1);
+	padding-bottom: 3px;
+	margin-bottom: 5px;
+	
+	
+	input {
+		// General styles
+		outline: none;
+		border: 0;
+		color: #ffffff;
+		background: transparent;
+		font-family: $font;
+		flex: 1 0 auto;
+		font-size: 14px;
+
+		
+		// Animation triggers
+		&:focus ~ label {
+	opacity: 1;
+		}
+		
+		// Icon abstractions
+		&[type='text'] {
+			~ label {
+				&::before {
+					content: "\f007";	
+				}
+			}
+		}
+		&[type='email'] {
+			~ label {
+				&::before {
+					content: "\f1fa";
+				}
+			}
+		}
+		&[type='password'] {
+			~ label {
+				&::before {
+					content: "\f023";	
+				}
+			}
+		}
+	}
+	
+	label {
+		font-family: FontAwesome;
+		font-size: 13px;
+		color: #ffffff;
+		
+		&::before {
+			align-items: center;
+			color: #ffffff;
+			display: flex;
+			height: 30px;
+			justify-content: center;
+			width: 30px;
+		}
+	}
+}
+
+// Button
+#login {
+	align-items: center;
+	background: $cinnabar;
+	border: 0;
+	border-radius: 20px;
+	color: white;
+	display: flex;
+	
+	font-family: $font;
+	font-size: 13px;
+	font-weight: 500;
+	justify-content: center;
+	margin-top: 20px;
+	outline: none;
+	padding: 10px 9px 10px 11px;
+	text-transform: uppercase;
+	width: 100%;
+	
+	.fa {
+		font-size: 12px;
+		margin-left: auto;
+		position: relative;
+		top: 1px;
+	}
+	
+	
+	&:hover {
+		transform: scale(1.02);
+	}
+	
+	&:active {
+		transform: scale(.99);
+	}
+}
+
+// Animation Classes
+.example-enter {
+	margin-top: 30px;
+	opacity: .01;
+	
+	&.example-enter-active {
+		margin-top: 0px;
+		opacity: 1;
+transition: opacity .5s ease, margin .5s ease;
+	}
+}
+
+.example-leave {
+	margin-top: 0px;	
+	opacity: 1;
+	
+	&.example-leave-active {
+		margin-top: -30px;
+		opacity: .01;
+		transition: opacity .3s ease, margin .5s ease;
+	}
+}
