@@ -1,0 +1,70 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+var Input = React.createClass({
+	render: function() {
+		return (
+			<div className="Input">
+				<input id={this.props.name} autocomplete="false" required type={this.props.type} placeholder={this.props.placeholder} />	
+				<label for={this.props.name}></label>
+			</div>
+		);
+	}
+});
+
+var Modal = React.createClass({
+	render: function() {
+		return (
+			<div className="Modal">
+				<form onSubmit={this.props.onSubmit} className="ModalForm">
+					
+					<img id="logo" src='https://iv.pl/images/83573343393626068024.png'></img>	
+					<h3>LANO</h3>
+					<Input id="name" type="text" placeholder="Imię" />
+					<Input id="username" type="email" placeholder="Email" />
+					<Input id="password" type="password" placeholder="Hasło" />
+					<button id="forgotpass">Nie pamiętasz hasła?</button>
+					<button id="login">Zaloguj <i className="fa fa-fw fa-chevron-right"></i></button>
+					<h1>Nie masz konta?</h1>
+					<button id="register">Zarejestruj</button>
+				</form>
+			</div>
+		);
+	}
+});
+
+var App = React.createClass({
+	
+	getInitialState: function() {
+		return { mounted: false };
+	},
+	
+	componentDidMount: function() {
+		this.setState({ mounted: true });
+	},
+	
+	handleSubmit: function(e) {
+		this.setState({ mounted: false });
+		e.preventDefault();
+	},
+
+	render: function() {
+		
+		var child;
+		if(this.state.mounted) {
+			child = (<Modal onSubmit={this.handleSubmit} />);
+		}
+		
+		return(
+			<div className="App">
+				<ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+					{child}
+				</ReactCSSTransitionGroup>
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('app')
+);
